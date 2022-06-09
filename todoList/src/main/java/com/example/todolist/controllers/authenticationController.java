@@ -48,6 +48,12 @@ public class authenticationController {
         return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<String>logoutUser(){
+        SecurityContextHolder.clearContext();
+        return new ResponseEntity<>("User logout successfully!.", HttpStatus.OK);
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SingUpDto signUpDto){
 
