@@ -1,14 +1,15 @@
 package com.example.todolist.controllers;
 
 
-import com.example.todolist.objects.ItemDto;
+import com.example.todolist.objects.dtos.ItemDto;
 import com.example.todolist.services.Interfaces.ItemServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController
+@RequestMapping("/item")
 public class itemController {
 
     @Autowired
@@ -20,6 +21,7 @@ public class itemController {
     }
 
     @GetMapping
+    @RequestMapping("/all")
     public List<ItemDto> getItens() {
         return itemService.getAllItems();
     }

@@ -1,6 +1,7 @@
-package com.example.todolist.objects;
+package com.example.todolist.objects.dtos;
 
 
+import com.example.todolist.objects.models.ItemModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

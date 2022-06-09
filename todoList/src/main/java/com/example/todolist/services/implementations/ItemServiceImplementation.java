@@ -1,10 +1,12 @@
 package com.example.todolist.services.implementations;
 
-import com.example.todolist.objects.ItemDto;
-import com.example.todolist.objects.ItemModel;
+import com.example.todolist.objects.dtos.ItemDto;
+import com.example.todolist.objects.models.ItemModel;
 import com.example.todolist.repositories.ItemRepository;
 import com.example.todolist.services.Interfaces.ItemServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

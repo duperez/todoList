@@ -1,7 +1,7 @@
 package com.example.todolist.services.Interfaces;
 
-import com.example.todolist.objects.ItemDto;
-import com.example.todolist.objects.ItemModel;
+import com.example.todolist.objects.dtos.ItemDto;
+import com.example.todolist.objects.models.ItemModel;
 
 import java.util.List;
 

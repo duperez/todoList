@@ -1,6 +1,7 @@
-package com.example.todolist.objects;
+package com.example.todolist.objects.models;
 
 
+import com.example.todolist.objects.dtos.ItemDto;
 import lombok.*;
 
 import javax.persistence.*;
