@@ -4,6 +4,8 @@ package com.example.todolist.controllers;
 import com.example.todolist.objects.dtos.ItemDto;
 import com.example.todolist.services.Interfaces.ItemServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,17 +19,21 @@ public class itemController {
 
     @PostMapping
     public boolean createItem(@RequestBody ItemDto itemDto) {
-        return itemService.createItem(itemDto);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return itemService.createItem(itemDto, auth);
     }
 
     @GetMapping
     @RequestMapping("/all")
     public List<ItemDto> getItens() {
-        return itemService.getAllItems();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return itemService.getAllItems(auth);
     }
 
     @DeleteMapping
+    @RequestMapping("/delete")
     public Boolean deleteItem(@RequestParam Long id) {
-        return itemService.delete(id);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return itemService.delete(id, auth);
     }
 }
