@@ -22,8 +22,16 @@ public class AuthenticationController {
     @Autowired
     AuthenticationServiceI authenticationService;
 
-    @PostMapping("/signin")
+    @PostMapping(path = "/signin", consumes = "application/json")
     public ResponseEntity<String> authenticateUser(@RequestBody UserDto loginDto){
+        log.info("trying to log in");
+        authenticationService.singIn(loginDto);
+        log.info("log in success");
+        return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/signin", consumes = "application/x-www-form-urlencoded")
+    public ResponseEntity<String> authenticateUserUrlEncoded(UserDto loginDto){
         log.info("trying to log in");
         authenticationService.singIn(loginDto);
         log.info("log in success");
