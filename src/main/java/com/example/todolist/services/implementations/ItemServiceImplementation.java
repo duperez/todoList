@@ -41,7 +41,7 @@ public class ItemServiceImplementation implements ItemServiceI {
     @Override
     public boolean delete(Long itemId, Authentication auth) {
         UserModel userModel = userRepository.findByUsernameOrEmail(auth.getName(), auth.getName()).get();
-        List<ItemModel> itemModelList = userModel.getItens().stream().filter(item -> item.getId().equals(itemId)).toList();
+        List<ItemModel> itemModelList = userModel.getItens().stream().filter(item -> item.getId().equals(itemId)).collect(Collectors.toList());
         if (itemModelList.isEmpty())
             return false;
         userModel.getItens().removeAll(itemModelList);
