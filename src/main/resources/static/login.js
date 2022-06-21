@@ -1,14 +1,14 @@
 var jwt = localStorage.getItem("jwt");
 if (jwt != null) {
-    window.location.href = 'index.html'
+    window.location.href = 'login.html'
 }
 
 function login() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username = document.getElementById("login").value;
+    const password = document.getElementById("pass").value;
 
     const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "{}");
+    xhttp.open("POST", "@{api/auth/signin}");
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send(JSON.stringify({
         "login": username,

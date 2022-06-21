@@ -31,11 +31,11 @@ public class AuthenticationController {
     }
 
     @PostMapping(path = "/signin", consumes = "application/x-www-form-urlencoded")
-    public ResponseEntity<String> authenticateUserUrlEncoded(UserDto loginDto){
+    public ResponseEntity<UserDto> authenticateUserUrlEncoded(UserDto loginDto){
         log.info("trying to log in");
         authenticationService.singIn(loginDto);
         log.info("log in success");
-        return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
+        return new ResponseEntity<>(loginDto, HttpStatus.OK);
     }
 
     @PostMapping("/logout")

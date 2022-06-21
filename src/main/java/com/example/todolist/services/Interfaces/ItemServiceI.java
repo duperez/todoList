@@ -9,9 +9,11 @@ import java.util.List;
 public interface ItemServiceI {
 
     boolean createItem(ItemDto item, Authentication auth);
+
+    boolean updateItem(ItemDto item, Authentication auth);
     boolean delete(Long item, Authentication auth);
 
-    ItemModel getItemById(Long item);
+    ItemDto getItemById(Long item);
 
     List<ItemDto> getAllItems(Authentication auth);
 

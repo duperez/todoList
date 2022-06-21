@@ -22,12 +22,24 @@ public class itemController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return itemService.createItem(itemDto, auth);
     }
+    @PutMapping
+    @RequestMapping("/update")
+    public boolean updateItem(@RequestBody ItemDto itemDto) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return itemService.updateItem(itemDto, auth);
+    }
 
     @GetMapping
     @RequestMapping("/all")
     public List<ItemDto> getItens() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return itemService.getAllItems(auth);
+    }
+    @GetMapping
+    @RequestMapping
+    public ItemDto getItem(@RequestParam Long id) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return itemService.getItemById(id);
     }
 
     @DeleteMapping
