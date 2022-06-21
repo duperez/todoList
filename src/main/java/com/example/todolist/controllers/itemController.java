@@ -22,8 +22,9 @@ public class itemController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return itemService.createItem(itemDto, auth);
     }
-    @PutMapping
-    @RequestMapping("/update")
+    //@PutMapping
+    //@RequestMapping("/update")
+    @RequestMapping(method = RequestMethod.PUT, value = "/update")
     public boolean updateItem(@RequestBody ItemDto itemDto) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return itemService.updateItem(itemDto, auth);

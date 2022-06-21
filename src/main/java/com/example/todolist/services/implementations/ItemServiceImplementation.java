@@ -29,7 +29,9 @@ public class ItemServiceImplementation implements ItemServiceI {
     @Override
     public boolean createItem(ItemDto item, Authentication auth) {
         try {
-
+            if (item.getId() != null) {
+                throw new IllegalArgumentException("id should be empty");
+            }
             UserModel userModel = userRepository.findByUsernameOrEmail(auth.getName(), auth.getName()).get();
             userModel.getItens().add(new ItemModel(item));
             userRepository.saveAndFlush(userModel);

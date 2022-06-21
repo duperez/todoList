@@ -41,14 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/item/**").authenticated()
                 .antMatchers("/users/**").permitAll()
                 .anyRequest()
-                .authenticated()
-            .and()
-            .formLogin()
-                .loginPage("/login.html")
-                .successForwardUrl("/index.html")
-                .permitAll()
-            .and()
-            .httpBasic();
+                .authenticated();
     }
 
     @Override

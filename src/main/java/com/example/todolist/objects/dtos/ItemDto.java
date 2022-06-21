@@ -17,7 +17,6 @@ public class ItemDto {
     String description;
     String date;
     Boolean status = false;
-
     Long id;
 
 
